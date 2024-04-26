@@ -4,6 +4,7 @@
     border-radius: 5px;
     animation-timing-function: ease-out;
     transition: box-shadow 0.1s ease-out;
+    max-height: 450px;
     
   }
 
@@ -20,6 +21,7 @@ animation-timing-function: ease-out;
   height: 400px;
   object-position: left top;
   width: 100%;
+  
 }
 
 @keyframes example {
