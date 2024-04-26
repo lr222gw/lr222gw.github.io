@@ -1,0 +1,41 @@
+.projectLink {
+    padding: 30px;
+    background-color: #dfdfdf;
+    border-radius: 5px;
+    animation-timing-function: ease-out;
+    transition: box-shadow 0.1s ease-out;
+    
+  }
+
+.projectLink:hover {
+box-shadow: 0px 0px 5px black;
+animation: example;
+animation-duration: 0.1s;
+animation-timing-function: ease-out;
+}
+
+.projectLink img,video {
+  object-fit: none;
+  object-fit: cover;
+  height: 400px;
+  object-position: left top;
+  width: 100%;
+}
+
+@keyframes example {
+    0%  {box-shadow: 0px 0px 0px black;}    
+    70% {
+        box-shadow: 0px 0px 10px black;
+    }
+    100% {
+        box-shadow: 0px 0px 5px black;
+    }
+    
+  }
+
+ 
+
+  /* @keyframes example2 {    
+    0% {box-shadow: 0px 0px 10px black;}
+    100% {box-shadow: 0px 0px 5px black;}
+  } */

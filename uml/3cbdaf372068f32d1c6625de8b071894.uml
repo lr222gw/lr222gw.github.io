@@ -1,0 +1,42 @@
+@startuml
+
+@startuml
+!theme cyborg
+skinparam backgroundColor #white
+skinparam DefaultFontColor purple
+actor User
+participant CPPPC
+participant CMake
+participant "Dummy CMake Project" as DummyCMake
+
+
+User -> CPPPC: Provide Library Name
+activate CPPPC
+
+create DummyCMake
+CPPPC -> DummyCMake: Create Dummy CMake Project
+
+CPPPC -> CMake: Execute CMake Command \nwith --debug-find flag
+activate CMake
+CMake -> DummyCMake: Configure
+
+CMake --> CPPPC: CMake Output (Logs with Paths)
+deactivate CMake
+
+CPPPC -> DummyCMake: Cleanup
+destroy DummyCMake
+
+CPPPC -> CPPPC: Parse CMake Output for configfile \nPaths and library CMake variables
+CPPPC -> CPPPC: Parse Config Files with Regex to \nRetrieve Targets and Components
+CPPPC --> User: Present Targets and \nComponents in GUI
+deactivate CPPPC
+
+User -> CPPPC: Select Targets to Link
+activate CPPPC
+CPPPC -> CPPPC: Generate CMake Project with \nSelected Library Targets
+CPPPC --> User: Get Configured \nCMake-Based Project
+deactivate CPPPC
+
+@enduml
+
+@enduml
