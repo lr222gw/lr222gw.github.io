@@ -22,10 +22,12 @@ layout: default
                 {{ post.title | escape }}
               </h3>
               {%- if post.image -%}
-              <video autoplay loop style="display:none;">
-                <source src='{{post.demo}}' altsrc='{{ post.image }}' type='video/mp4'/>
-              </video>
-              <img src="{{ post.image }}" altsrc="{{post.demo}}">
+              <div class="projectLinkMedia">
+                <video autoplay loop style="display:none;">
+                  <source src='{{post.demo}}' altsrc='{{ post.image }}' type='video/mp4'/>
+                </video>
+                <img src="{{ post.image }}" altsrc="{{post.demo}}">
+              </div>
               {%- endif -%}
               {%- if site.show_excerpts -%}
               {{ post.excerpt }}

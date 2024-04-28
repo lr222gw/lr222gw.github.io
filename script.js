@@ -3,32 +3,98 @@
 $(function(){
 
     // jQuery methods go here...
+    initFuncs();
+        
+    isInsideDiv = false
+
+    $(".projectLink").on("mouseenter",
+        function()
+        {
+            console.log("tagname:" +this.tagName)
+            if(isInsideDiv)
+                return ;
+            isInsideDiv = true;
+
+            let useInitHeight = $(this).find('.projectLinkMedia')[0].clientHeight;
+            $(this).find('.projectLinkMedia').attr("initialClientHeight",useInitHeight);
+            console.log("clienthieghtr:" + $(this).find('.projectLinkMedia')[0].clientHeight)
+            console.log(this);
+            let path = getCurrentPath(this,"img");
+
+            console.log("path:" +path)
+            let altPath = getAltPath(this,"img");
+            console.log("altPath:" +altPath)
+            if(isExtensionVideo(getExtension(altPath)))
+            {
+                replaceWithVideo(this,altPath,path);
+                $(this).find('video').attr('style', 'height: '+ useInitHeight+'px;');
+            }
+            else if(isExtensionImage(getExtension(altPath)))
+            {
+                replaceWithImage(this,altPath,path);
+                $(this).find('img').attr('style', 'height: '+ useInitHeight+'px;');
+            }
+            let projectLinkMedia = $(this).find('.projectLinkMedia');
+            projectLinkMedia.attr('style', 'height: '+ useInitHeight+'px;')
+        }
+    );
+
+    $(".projectLink").on("mouseleave",
+        function()
+        {
+            if(!isInsideDiv)
+                return ;
+
+            let path = getCurrentPath(this,'source');
+            let altPath = getAltPath(this,'source');
+            if(isExtensionVideo(getExtension(altPath)))
+            {                
+                replaceWithVideo(this,altPath,path);
+                let useInitHeight = $(this).find('.projectLinkMedia').attr("initialClientHeight");
+                $(this).find('video').attr('style', "");
+            }
+            else if(isExtensionImage(getExtension(altPath)))
+            {
+
+                replaceWithImage(this,altPath,path);
+                let useInitHeight = $(this).find('.projectLinkMedia').attr("initialClientHeight");
+                $(this).find('img').attr('style', "");
+            }
+            let projectLinkMedia = $(this).find('.projectLinkMedia');
+            projectLinkMedia.attr('style', '');
+
+            isInsideDiv = false;
+        }
+    );
     
-    function getCurrentPath(element, type)
+  
+}); 
+
+
+function initFuncs()
+{
+    getCurrentPath = function(element, type)
     {
         let path =  $(element).find(type).attr("src")
         return path;
     }
-    function getAltPath(element, type)
+    getAltPath = function(element, type)
     {
         let path =  $(element).find(type).attr("altsrc")
         return path;
     }
 
-    function getExtension(path)
+    getExtension = function(path)
     {
         let splitpath = (path.split("/"))
-        console.log("path:"+path);
         let filename = splitpath[splitpath.length -1];
-        console.log("filename:"+filename);
         let splitextension = filename.split('.')
         let extension = splitextension[splitextension.length -1]
-        console.log("extension:"+extension);
         
         return extension;
     }
     
-    function replaceWithVideo(element, currentPath, altPath)
+    replaceWithVideo = function(element, currentPath, altPath)
     {
 
         $(element).find('video').show();
@@ -38,16 +104,16 @@ $(function(){
         $(element).find('img').hide();
         
     }
-    function replaceWithImage(element, currentPath, altPath )
+    replaceWithImage = function(element, currentPath, altPath )
     {
-        $(element).find('video').hide()
+        $(element).find('video').hide()        
 
         $(element).find('img').show();
         $(element).find('img').attr('src', currentPath);
         $(element).find('img').attr('altsrc', altPath);
     }
 
-    function isExtensionVideo(extension)
+    isExtensionVideo = function(extension)
     {
         switch (extension) {
             case "mp4":
@@ -60,7 +126,7 @@ $(function(){
         }
         return false;
     }
-    function isExtensionImage(extension)
+    isExtensionImage = function(extension)
     {
         switch (extension) {
             case "png":
@@ -76,46 +142,4 @@ $(function(){
         }
         return false;
     }
-    
-    isInsideDiv = false
-
-    $(".projectLink").on("mouseenter",
-        function()
-        {
-            console.log("tagname:" +this.tagName)
-            if(isInsideDiv)
-                return ;
-            isInsideDiv = true;
-
-            let path = getCurrentPath(this,"img");
-
-            console.log("path:" +path)
-            let altPath = getAltPath(this,"img");
-            console.log("altPath:" +altPath)
-            if(isExtensionVideo(getExtension(altPath)))
-                replaceWithVideo(this,altPath,path);
-            else if(isExtensionImage(getExtension(altPath)))
-                replaceWithImage(this,altPath,path);
-        }
-    );
-
-    $(".projectLink").on("mouseleave",
-        function()
-        {
-            if(!isInsideDiv)
-                return ;
-
-            let path = getCurrentPath(this,'source');
-            let altPath = getAltPath(this,'source');
-            if(isExtensionVideo(getExtension(altPath)))
-                replaceWithVideo(this,altPath,path);
-            else if(isExtensionImage(getExtension(altPath)))
-                replaceWithImage(this,altPath,path);
-
-            isInsideDiv = false;
-        }
-    );
-    
-  
-  }); 
-
+}

@@ -4,8 +4,17 @@
     border-radius: 5px;
     animation-timing-function: ease-out;
     transition: box-shadow 0.1s ease-out;
-    max-height: 450px;
-    
+    /* max-height: 13em;  */
+  }
+
+video, div, img{
+  margin: 0px ;
+  padding: 0px ;
+}
+
+.projectLinkMedia {
+
+    /* max-height: 13em;  */
   }
 
 .projectLink:hover {
@@ -18,7 +27,7 @@ animation-timing-function: ease-out;
 .projectLink img,video {
   object-fit: none;
   object-fit: cover;
-  height: 400px;
+  /* height: 400px; */
   object-position: left top;
   width: 100%;
   
