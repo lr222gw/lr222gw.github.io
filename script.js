@@ -121,6 +121,7 @@ function initFuncs()
     {
 
         $(element).find('video').show();
+        $(element).find('video')[0].play();
         $(element).find('video').find('source').attr('src', currentPath);
         $(element).find('video').find('source').attr('altsrc', altPath);
 
