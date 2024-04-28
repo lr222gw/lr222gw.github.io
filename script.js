@@ -4,23 +4,14 @@ $(function(){
 
     // jQuery methods go here...
     
-    function getCurrentPath(element)
+    function getCurrentPath(element, type)
     {
-        let path =  $(element).find('img').attr("src")
-        if (path == undefined )
-        {
-            path =  $(element).find('source').attr("src")
-        }
+        let path =  $(element).find(type).attr("src")
         return path;
     }
-    function getAltPath(element)
+    function getAltPath(element, type)
     {
-        let path =  $(element).find('img').attr("altsrc")
-        if (path == undefined )
-        {
-            path =  $(element).find('source').attr("altsrc")
-        }
-        
+        let path =  $(element).find(type).attr("altsrc")
         return path;
     }
 
@@ -39,26 +30,21 @@ $(function(){
     
     function replaceWithVideo(element, currentPath, altPath)
     {
-        var videoTag = $(
-            "<video autoplay loop>"
-            +"<source src='"+currentPath+"' altsrc='"+altPath+"' type='video/mp4'/>"
-            +"</video>"
-        );
-        // $(element).find('img').replaceWith(videoTag);
-        if(isExtensionVideo(getExtension(altPath)))
-            $(element).find('video').replaceWith(videoTag);
-        else 
-            $(element).find('img').replaceWith(videoTag);
+
+        $(element).find('video').show();
+        $(element).find('video').find('source').attr('src', currentPath);
+        $(element).find('video').find('source').attr('altsrc', altPath);
+
+        $(element).find('img').hide();
+        
     }
     function replaceWithImage(element, currentPath, altPath )
     {
-        var imgTag = $(
-            "<img src='"+currentPath+"' altsrc='"+altPath+"'/>"
-        );
-        if(isExtensionVideo(getExtension(altPath)))
-            $(element).find('video').replaceWith(imgTag);
-        else 
-            $(element).find('img').replaceWith(imgTag);
+        $(element).find('video').hide()
+
+        $(element).find('img').show();
+        $(element).find('img').attr('src', currentPath);
+        $(element).find('img').attr('altsrc', altPath);
     }
 
     function isExtensionVideo(extension)
@@ -101,52 +87,15 @@ $(function(){
                 return ;
             isInsideDiv = true;
 
-            let path = getCurrentPath(this);
+            let path = getCurrentPath(this,"img");
+
             console.log("path:" +path)
-            let altPath = getAltPath(this);
+            let altPath = getAltPath(this,"img");
             console.log("altPath:" +altPath)
             if(isExtensionVideo(getExtension(altPath)))
                 replaceWithVideo(this,altPath,path);
             else if(isExtensionImage(getExtension(altPath)))
                 replaceWithImage(this,altPath,path);
-
-
-
-            // let path = $(this).find('img').attr('src');
-            // let path =  $(this).find('img').attr("altsrc")
-            // let ogpath =  $(this).find('img').attr("src")
-            // let splitpath = (path.split("/"))
-            // console.log("path:"+path);
-            // let filename = splitpath[splitpath.length -1];
-            // console.log("filename:"+filename);
-            // let splitextension = filename.split('.')
-            // let extension = splitextension[splitextension.length -1]
-            // console.log("extension:"+extension);
-
-            // if current is video, get alt from 
-
-            // if(extension == "mp4"){
-            //     var videoTag = $(
-            //         "<video autoplay loop>"
-            //         +"<source src='"+path+"' altsrc='"+ogpath+"' type='video/mp4'/>"
-            //         +"</video>"
-            //     )
-            //     $(this).find('img').replaceWith(videoTag)
-                
-            // }else {
-            //     // var imgTag = $(
-            //     //     "<img src='"+path+"' />"
-            //     // )
-            //     // $(this).find('video').replaceWith(imgTag)
-            // }
-
-            // let temp=$(this).find('img').attr('src')
-            // $(this).find('img').attr('src', $(this).find('img').attr("altsrc"))
-            // $(this).find('img').attr('altsrc', temp)
-
-            // temp=$(this).find('img').attr('src')
-            // $(this).find('img').attr('src', $(this).find('img').attr("altsrc"))
-            // $(this).find('img').attr('altsrc', temp)
         }
     );
 
@@ -155,39 +104,15 @@ $(function(){
         {
             if(!isInsideDiv)
                 return ;
-            
 
-            let path = getCurrentPath(this);
-            let altPath = getAltPath(this);
+            let path = getCurrentPath(this,'source');
+            let altPath = getAltPath(this,'source');
             if(isExtensionVideo(getExtension(altPath)))
                 replaceWithVideo(this,altPath,path);
             else if(isExtensionImage(getExtension(altPath)))
                 replaceWithImage(this,altPath,path);
 
-
             isInsideDiv = false;
-
-            // let ogpath =  $(this).find('source').attr("src")
-            // let path   =  $(this).find('source').attr("altsrc")
-            // let splitpath = (path.split("/"))
-            // console.log("path:"+path);
-            // let filename = splitpath[splitpath.length -1];
-            // console.log("filename:"+filename);
-            // let splitextension = filename.split('.')
-            // let extension = splitextension[splitextension.length -1]
-            // console.log("extension:"+extension);
-
-            // if(extension == "png"){
-            //     var imgTag = $(
-            //         "<img src='"+ogpath+"' altsrc='"+path+"'/>"
-            //     )
-            //     $(this).find('video').replaceWith(imgTag)
-                
-            // }
-
-            // let temp=$(this).find('img').attr('src')
-            // $(this).find('img').attr('src', $(this).find('img').attr("altsrc"))
-            // $(this).find('img').attr('altsrc', temp)
         }
     );
     
