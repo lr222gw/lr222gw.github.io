@@ -18,19 +18,21 @@ layout: default
         <!-- <span class="post-meta">{{ post.date | date: date_format }}</span> -->
         <a class="post-link" href="{{ post.url | relative_url }}">
         <div class="projectLink">
-            <h3>
-                {{ post.title | escape }}
-              </h3>
+              <div class="projectTitle">
+                <h3>
+                  {{ post.title | escape }}
+                </h3>
+              </div>
               <div class="projectLinkMedia">
                 {%- if post.demotype == "video" -%}
-                  <video autoplay muted loop style="display:none;">
-                    <source src='{{post.demo}}' class="demofeed" demotype="video" altsrc='{{ post.image }}' type='video/mp4'/>
+                  <video autoplay muted loop style="display:none;" class="demofeed">
+                    <source src='{{post.demo}}' demotype="video" altsrc='{{ post.image }}' type='video/mp4'/>
                   </video>
                   <img src="{{ post.image }}" thumbnail altsrc="{{post.demo}}">                
                 {%- endif -%}
                 {%- if post.demotype == "image" -%}
-                  <img src="{{ post.image }}" thumbnail altsrc="{{post.demo}}">
                   <img src="{{post.demo}}" class="demofeed" demotype="image" altsrc="{{ post.image }}" style="display: none;">
+                  <img src="{{ post.image }}" thumbnail altsrc="{{post.demo}}">
                 {%- endif -%}
               </div>
               {%- if site.show_excerpts -%}

@@ -1,29 +1,40 @@
 
-
+var isInsideDiv = false;
 $(function(){
 
     // jQuery methods go here...
     initFuncs();
         
-    isInsideDiv = false;
-
+    var currentHover = null
     $(".projectLink").on("touchstart",
     function()
     {
+        if(currentHover != null)
+            return; 
+        currentHover = this;
+        $(this).addClass('projectLink_hover')
         onEnterHover(this);
     }
     )
     $(".projectLink").on("touchend",
     function()
     {
+        console.log($(this))
+        console.log($(currentHover))
+        if(currentHover != this)
+            return;
+        
+        $(this).removeClass('projectLink_hover')
         onExitHover(this);
+        currentHover = null;
     }
     )
     
 
     $(".projectLink").on("mouseenter",
         function()
-        {
+        {            
+            $(this).addClass('projectLink_hover')
             onEnterHover(this);
         }
     );
@@ -32,8 +43,15 @@ $(function(){
         function()
         {
             onExitHover(this);
+            $(this).removeClass('projectLink_hover')
         }
     );
+    $(window).on('resize',function(){
+        
+        $('[thumbnail]').each(function(){
+            $(this).attr('style', "");
+        });
+    })
 }); 
 
 
@@ -41,7 +59,6 @@ function initFuncs()
 {
     onEnterHover = function(element)
     {
-        console.log("tagname:" +element.tagName)
         if(isInsideDiv)
             return ;
         isInsideDiv = true;
@@ -56,7 +73,7 @@ function initFuncs()
     }
     onExitHover = function(element)
     {
-        if(!isInsideDiv)
+        if(! isInsideDiv)
             return ;
 
         showThumbnail(element);

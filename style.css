@@ -1,21 +1,41 @@
 .projectLink {
-    padding: 30px;
-    background-color: #dfdfdf;
+    padding: 10px 30px 30px 30px;
+    background-image: linear-gradient(rgba(224,208,234, 0) 0%,rgba(216,168,192, 0.1) 40%,rgba(224,208,234, 0.5) 80%);
     border-radius: 5px;
     animation-timing-function: ease-out;
     transition: box-shadow 0.1s ease-out;
     /* max-height: 13em;  */
+    overflow: hidden;
+
+    /* background-blend-mode: exclusion; */
   }
 
 video, div, img{
   margin: 0px ;
   padding: 0px ;
 }
+h3{
+  color: #585563;
+}
+
+a:hover {
+  color: #111;
+  text-decoration-line: none;
+}
 
 .projectLinkMedia {
 
     /* max-height: 13em;  */
-  }
+}
+
+.projectTitle {
+  background-color: #e0d0ea;
+  position: relative;
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-left: 30px;
+  box-shadow: inset 24px -1px 0px 0px #7f7486, 0px 2px 5px -2px #7f7486;
+}
 
 .post-link {
   font-size: 20px;
@@ -39,7 +59,11 @@ video, div, img{
   }
 }
 
-.projectLink:hover {
+.demofeed {
+  padding-bottom: 150px; /* This fixes bug on Android; prev if u touched bottom of demo, it would also display thumbnail below */
+}
+
+.projectLink_hover {
 box-shadow: 0px 0px 5px black;
 animation: example;
 animation-duration: 0.1s;
@@ -49,7 +73,6 @@ animation-timing-function: ease-out;
 .projectLink img,video {
   object-fit: none;
   object-fit: cover;
-  /* height: 400px; */
   object-position: left top;
   width: 100%;
   
@@ -65,10 +88,3 @@ animation-timing-function: ease-out;
     }
     
   }
-
- 
-
-  /* @keyframes example2 {    
-    0% {box-shadow: 0px 0px 10px black;}
-    100% {box-shadow: 0px 0px 5px black;}
-  } */
