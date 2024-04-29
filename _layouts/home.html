@@ -21,14 +21,18 @@ layout: default
             <h3>
                 {{ post.title | escape }}
               </h3>
-              {%- if post.image -%}
               <div class="projectLinkMedia">
-                <video autoplay loop style="display:none;">
-                  <source src='{{post.demo}}' altsrc='{{ post.image }}' type='video/mp4'/>
-                </video>
-                <img src="{{ post.image }}" altsrc="{{post.demo}}">
+                {%- if post.demotype == "video" -%}
+                  <video autoplay muted loop style="display:none;">
+                    <source src='{{post.demo}}' class="demofeed" demotype="video" altsrc='{{ post.image }}' type='video/mp4'/>
+                  </video>
+                  <img src="{{ post.image }}" thumbnail altsrc="{{post.demo}}">                
+                {%- endif -%}
+                {%- if post.demotype == "image" -%}
+                  <img src="{{ post.image }}" thumbnail altsrc="{{post.demo}}">
+                  <img src="{{post.demo}}" class="demofeed" demotype="image" altsrc="{{ post.image }}" style="display: none;">
+                {%- endif -%}
               </div>
-              {%- endif -%}
               {%- if site.show_excerpts -%}
               {{ post.excerpt }}
               {%- endif -%}

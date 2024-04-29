@@ -34,8 +34,6 @@ $(function(){
             onExitHover(this);
         }
     );
-    
-  
 }); 
 
 
@@ -50,23 +48,9 @@ function initFuncs()
 
         let useInitHeight = $(element).find('.projectLinkMedia')[0].clientHeight;
         $(element).find('.projectLinkMedia').attr("initialClientHeight",useInitHeight);
-        console.log("clienthieghtr:" + $(element).find('.projectLinkMedia')[0].clientHeight)
-        console.log(element);
-        let path = getCurrentPath(element,"img");
 
-        console.log("path:" +path)
-        let altPath = getAltPath(element,"img");
-        console.log("altPath:" +altPath)
-        if(isExtensionVideo(getExtension(altPath)))
-        {
-            replaceWithVideo(element,altPath,path);
-            $(element).find('video').attr('style', 'height: '+ useInitHeight+'px;');
-        }
-        else if(isExtensionImage(getExtension(altPath)))
-        {
-            replaceWithImage(element,altPath,path);
-            $(element).find('img').attr('style', 'height: '+ useInitHeight+'px;');
-        }
+        showDemofeed(element,useInitHeight);
+
         let projectLinkMedia = $(element).find('.projectLinkMedia');
         projectLinkMedia.attr('style', 'height: '+ useInitHeight+'px;')
     }
@@ -75,21 +59,8 @@ function initFuncs()
         if(!isInsideDiv)
             return ;
 
-        let path = getCurrentPath(element,'source');
-        let altPath = getAltPath(element,'source');
-        if(isExtensionVideo(getExtension(altPath)))
-        {                
-            replaceWithVideo(element,altPath,path);
-            let useInitHeight = $(element).find('.projectLinkMedia').attr("initialClientHeight");
-            $(element).find('video').attr('style', "");
-        }
-        else if(isExtensionImage(getExtension(altPath)))
-        {
-
-            replaceWithImage(element,altPath,path);
-            let useInitHeight = $(element).find('.projectLinkMedia').attr("initialClientHeight");
-            $(element).find('img').attr('style', "");
-        }
+        showThumbnail(element);
+        
         let projectLinkMedia = $(element).find('.projectLinkMedia');
         projectLinkMedia.attr('style', '');
 
@@ -99,6 +70,7 @@ function initFuncs()
     getCurrentPath = function(element, type)
     {
         let path =  $(element).find(type).attr("src")
+
         return path;
     }
     getAltPath = function(element, type)
@@ -109,6 +81,7 @@ function initFuncs()
 
     getExtension = function(path)
     {
+        console.log(`splitting: ${path}`)
         let splitpath = (path.split("/"))
         let filename = splitpath[splitpath.length -1];
         let splitextension = filename.split('.')
@@ -117,24 +90,34 @@ function initFuncs()
         return extension;
     }
     
-    replaceWithVideo = function(element, currentPath, altPath)
+    showDemofeed = function(element, useInitHeight)
     {
 
-        $(element).find('video').show();
-        $(element).find('video')[0].play();
-        $(element).find('video').find('source').attr('src', currentPath);
-        $(element).find('video').find('source').attr('altsrc', altPath);
+        demotype = $(element).find('[demotype]').attr('demotype');
+        if(demotype == 'video'){
+            $($(element).find('[demotype]')[0].parentElement).show();
+            $(element).find('[demotype]')[0].parentElement.play();
+            $($(element).find('[demotype]')[0].parentElement).attr('style', 'height: '+ useInitHeight+'px;');
+        }
+        else {
+            $(element).find('[demotype]').show()
+            $(element).find('[demotype]').attr('style', 'height: '+ useInitHeight+'px;');
+        }
 
-        $(element).find('img').hide();
+        $(element).find('[thumbnail]').hide();
         
     }
-    replaceWithImage = function(element, currentPath, altPath )
+    showThumbnail = function(element)
     {
-        $(element).find('video').hide()        
-
-        $(element).find('img').show();
-        $(element).find('img').attr('src', currentPath);
-        $(element).find('img').attr('altsrc', altPath);
+        demotype = $(element).find('[demotype]').attr('demotype');
+        if(demotype == 'video'){
+            $($(element).find('[demotype]')[0].parentElement).hide();
+        }
+        else {
+            $(element).find('[demotype]').hide()
+        }
+        
+        $(element).find('[thumbnail]').show();
     }
 
     isExtensionVideo = function(extension)
