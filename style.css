@@ -1,7 +1,8 @@
 .projectLink {
-    padding: 10px 30px 30px 30px;
+    /* padding: 10px 30px 30px 30px; */
+    padding: 0px 30px 30px 30px;
     background-image: linear-gradient(rgba(224,208,234, 0) 0%,rgba(216,168,192, 0.1) 40%,rgba(224,208,234, 0.5) 80%);
-    border-radius: 5px;
+    border-radius: 20px 0px 20px 0px;
     animation-timing-function: ease-out;
     transition: box-shadow 0.1s ease-out;
     /* max-height: 13em;  */
@@ -28,13 +29,28 @@ a:hover {
     /* max-height: 13em;  */
 }
 
-.projectTitle {
+/* .projectTitle {
   background-color: #e0d0ea;
   position: relative;
   margin-left: -30px;
   margin-right: -30px;
   padding-left: 30px;
   box-shadow: inset 24px -1px 0px 0px #7f7486, 0px 2px 5px -2px #7f7486;
+} */
+
+
+
+.projectTitle {
+  background-color: #e0d0ea;
+  position: relative;
+  margin-left: -30px;
+  margin-right: -30px;
+  padding-left: 30px;
+  /* box-shadow: inset 24px -1px 0px 0px #7f7486, 0px 2px 5px -2px #7f7486; */
+  box-shadow: inset 24px -1px 0px 0px #60357b9c, 0px 2px 5px -2px #7f7486;;
+  
+  border-radius: 20px 0px 0px 0px;
+  background-image: linear-gradient(#fff 70%,#e0d0ea 134%);
 }
 
 .post-link {
@@ -62,6 +78,7 @@ a:hover {
 .demofeed {
   padding-bottom: 150px; /* This fixes bug on Android; prev if u touched bottom of demo, it would also display thumbnail below */
 }
+
 
 .projectLink_hover {
 box-shadow: 0px 0px 5px black;

@@ -1,10 +1,11 @@
 
 var isInsideDiv = false;
+var lasttHover = null
 $(function(){
 
     // jQuery methods go here...
     initFuncs();
-        
+            
     var currentHover = null
     $(".projectLink").on("touchstart",
     function()
@@ -12,8 +13,10 @@ $(function(){
         if(currentHover != null)
             return; 
         currentHover = this;
+         
         $(this).addClass('projectLink_hover')
         onEnterHover(this);
+        lasttHover = this;
     }
     )
     $(".projectLink").on("touchend",
@@ -36,6 +39,7 @@ $(function(){
         {            
             $(this).addClass('projectLink_hover')
             onEnterHover(this);
+            lasttHover = this;
         }
     );
 
@@ -113,6 +117,9 @@ function initFuncs()
         demotype = $(element).find('[demotype]').attr('demotype');
         if(demotype == 'video'){
             $($(element).find('[demotype]')[0].parentElement).show();
+            if (lasttHover != element)
+            $(element).find('[demotype]')[0].parentElement.currentTime = 0;
+
             $(element).find('[demotype]')[0].parentElement.play();
             $($(element).find('[demotype]')[0].parentElement).attr('style', 'height: '+ useInitHeight+'px;');
         }
