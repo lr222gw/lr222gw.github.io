@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+
+  {%- include head.html -%}
+
+  <body>
+    {%- include header.html -%}
+    
+    <main class="page-content" aria-label="Content" >
+        <div class="wrapper">
+            <header class="post-header">
+                <h1 class="post-title">{{ page.title | escape }}</h1>
+              </header>
+            
+              <div class="post-content">
+                {{ content }}
+              </div>
+        </div>        
+        <div id="cv_frame" style="width: 100%; display: flex; align-content: center;">
+            <iframe frameborder="0" scrolling="auto" style="margin:auto;width: 210mm !important; height: calc(1*297mm) !important;border: 1px solid #ec92eb2e;
+            box-shadow: 0px 0px 5px -2px black;" src="{{ page.path_to_cv }}/CV.html">aa</iframe>
+            <!-- box-shadow: 0px 0px 5px -2px black;" src="/Me/Regular/CV.html">aa</iframe> -->
+        </div>
+        <div class="buttoncontainer">
+            <a href="{{ page.path_to_cv }}/{{page.cv_pdf_name}}.pdf" download="{{page.cv_pdf_name}}">
+            <button id="downloadpdfbutton">Download PDF</button>
+            </a>
+        </div>
+        
+    </article>
+    </main>
+    {%- include footer.html -%}
+    <link rel="stylesheet" href="/presentcv.css" >
+</body>
+</html>

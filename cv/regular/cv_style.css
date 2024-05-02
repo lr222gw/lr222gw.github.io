@@ -1,0 +1,448 @@
+
+@font-face {
+    font-family: selectedfont;
+    src: url(fonts/Louis\ George\ Cafe\ Light.ttf);
+
+  }
+
+body {
+    background-color: rgb(178, 178, 178) !important;
+    margin: 0%;
+}
+body  * { /*Changes all default fonts */
+    font-family: selectedfont;    
+}
+div{
+    background-color: rgb(255, 255, 255,0) !important;
+}
+
+p {
+    line-height: 135%;
+}
+
+#page {
+    margin: auto;
+    background-color: white !important;
+    width: 210mm !important;
+    height: calc(1*297mm) !important;
+    position: relative;
+}
+
+#pfpname{
+    width: 35%;
+    margin: auto;
+    display: flex;
+    flex-direction: row;    
+    position: relative;
+    padding-bottom: 10px;
+}
+
+#pfpname::after {
+    content: "";
+    display: block;
+    border-bottom: 1px solid rgb(0, 0, 0,0.15);
+    width: 115%; /* Adjust the width to extend the border */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+#pfp {
+    width: 110px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 25% 3% 25% 3%;
+    display: block;
+    margin: auto;
+    float: left;
+    margin-bottom: 0px;
+    padding-top: 2%;
+    
+}
+
+.demoimage {
+    height: 115px;
+    object-fit: cover;
+    border-radius: 10% 3% 5% 3%;
+    display: block;
+    margin: auto;
+    float: left;
+    margin-bottom: 0px;
+    padding-top: 2%;
+    padding-right: 10px
+}
+
+#name * { /*Removes all the default padding and marigin from */
+    margin: 0;
+    padding: 0;
+}
+
+#name{
+    display: block;
+    margin: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: fit-content;
+    padding-top: 20%;
+}
+
+#name h2 {    
+    font-size: 1.80em;
+}
+
+#name h5 {
+    padding-top: 2%;
+    font-size: 1.20em;
+    color: rgba(0, 0, 0, 0.65);
+}
+
+#banner {
+    width: 100%;
+    height: 18%;   
+    display: flex;      
+    flex-direction: column; 
+}
+#banner_2 {
+    width: 100%;
+
+}
+
+#bannersubwrap{
+    background: linear-gradient(to top, #0000001f 0%, #ffffff00 30%) ;
+    height: 17%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+#bannersubwrap_2{
+    background: linear-gradient(to top, #ffffff00 0%, #0000001f 30%) ;
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#bannersub{    
+    width: 75%;
+    height: 100%; 
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 5px;
+}
+.bannersubitem{
+    margin: auto;    
+    display: flex;    
+    height: 1.2em;
+}
+.bannersubitem img{
+    float: left;
+    height: 1.3em;
+      
+}
+.bannersubitem p {
+    font-size: small;
+    margin: auto;
+    margin-left: 5px;
+}
+
+.bannersubitem > *{
+    margin: 0%;
+    margin-left: 10px;
+}
+
+#contentbody {
+    background-color: rgb(181, 198, 95);
+    width: 90%;
+    display: flex;
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+#contentbody2 {
+    background-color: rgb(181, 198, 95);
+    width: 95%;
+    display: flex;    
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+}
+
+#sidebar {
+    background-color: rgb(3, 61, 3);
+    width: 25% ;
+    height: 100% ;    
+    overflow: auto;
+    float: left;
+    display: flexbox;
+    flex-grow: 1;
+    position: relative;
+}
+
+.sidebarchild{
+    margin: 2% 2% 2% 2%;
+}
+.sidebarchild > * { /*Removes all the default padding and marigin from */
+    margin: 0;
+    padding: 0;
+}
+
+.sidebarchild h2::after {
+    content: '';
+    display: block;
+    width: 20%;
+    margin: 2px;
+    border-bottom: 2px solid #000;
+}
+
+.sidebarchild p {
+    font-size: small;
+}
+.sidebarchild h5 {
+    padding-top: 5%;
+}
+
+#contact {
+    background-color: rgb(139, 171, 139);
+    width: auto;
+    height: 25% ;    
+}
+
+#competens {
+    background-color: rgb(139, 171, 139);
+    width: auto;
+    height: 25% ;    
+    margin-top: 10%;
+}
+
+#content{    
+    width: 75%;    
+    height: max-content;    
+    padding: 0px;
+    margin: 0px;    
+}
+
+#content h5 {
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+#content p, div ul li {
+    font-size:0.85em;
+}
+
+#content2{    
+    width: 95%;    
+    height: max-content;    
+    padding: 0px;
+    margin: 0px;    
+}
+
+#content2 h5 {
+    padding-top: 10px;
+    margin-bottom: 0;
+}
+
+#content2 p, div ul li {
+    font-size:0.85em;
+}
+
+.contentchild_inner2{
+    width: 100%;
+    padding-right: 25px !important;
+}
+
+
+.contentchild{
+    flex-grow: 1;
+    position: relative;
+    padding-left: 5%;
+    margin-bottom: 2%;
+    margin-top: 4%;
+}
+.contentchild  * { /*Removes all the default padding and marigin from */
+    margin: 0;
+    padding: 0; 
+}
+
+.contentchild_2 {
+    flex-grow: 1;
+    position: relative;
+    padding-left: 5%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+.contentchild_2 > * { /*Removes all the default padding and marigin from */
+    margin: 0;
+    padding: 0;
+    
+}
+
+
+#footer{
+
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+}
+
+#bottomsubwrap{
+    background: linear-gradient(to top, #0000001f 0%, #ffffff00 30%);
+    height: 45px;
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top: -45px;
+
+}
+#bottomsection{
+    padding-top: 2%;
+    padding-left: 5%;
+    padding-right: 5%;
+    padding-bottom: 5%;
+    background: linear-gradient(to top, #0000001f 100%, #ffffff00 100%);
+    width: 90%;
+}
+
+#education {
+    background-color: rgb(128, 19, 0);    
+}
+.education-item > * { /*Removes all the default padding and marigin from */
+    margin: 0;
+    padding: 0;
+}
+#education-items > * {
+    margin: 0;
+    padding: 0;
+}
+
+.education-item  {    
+    width: -webkit-fill-available;
+    width: -moz-available;
+}
+#education-items {
+    display: flex;
+    flex-direction: row;
+}
+
+
+.contentchild >  ul, .education-item > ul{
+    margin-left: 2%;
+    padding: inherit;
+    padding-left: 5%;
+    margin-top: 2%;
+}
+.contentchild >  ul li, .education-item > ul li {
+    margin-bottom: 3%;
+    list-style-type: circle;
+}
+.contentchild_2 >  ul, .education-item > ul{
+    margin-left: 2%;
+    padding: inherit;
+    padding-left: 5%;
+    margin-top: 2%;
+}
+.contentchild_2 >  ul li, .education-item > ul li {
+    margin-bottom: 3%;
+    list-style-type: circle;
+}
+
+
+
+.contentchild > p, h4 {
+
+}
+.contentchild > h4 {
+
+    padding-bottom:2%;
+}
+.contentchild_2 > h4 {
+
+    padding-bottom:2%;
+}
+
+.contentchild::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    width: 1px; /* Adjust the width of the line as needed */
+    background-color: #000; /* Adjust the color of the line as needed */
+    left: 1%;
+}
+.contentchild_2::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    width: 0px; /* Adjust the width of the line as needed */
+    background-color: #000; /* Adjust the color of the line as needed */
+    left: 1%;
+}
+
+.contentchild_small::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    width: 1px; /* Adjust the width of the line as needed */
+    background-color: #000; /* Adjust the color of the line as needed */
+    left: 1%;
+}
+
+
+#description {
+    background-color: rgb(128, 0, 102);
+    flex: 1 0 30%;    
+}
+
+.projectdesc  {
+    width: 25%;
+    font-size: 0.8em;
+}
+
+.projectdesc::after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    bottom: 10px;
+    width: 1px;
+    background-color: #d1d1d1;
+    height: 60%;
+    right: 19.5%;
+    top: 30px;
+}
+
+.projectdesc h5 {
+    display: block;
+    margin: 0px 0 5px 0;
+
+}
+
+
+.projectdesc h5::after {
+    content: '';
+    display: block;
+    width: 15%;
+    margin: 2px;
+    border-bottom: 1px solid #000;
+}
+
+.smallerText{
+
+    font-size:0.75em !important;
+    margin: 0 0 0 0;
+
+}
+.imgcaption {
+    float: inline-start;
+    font-style: italic;
+    font-size: smaller;
+}
+.underimg {
+
+}
