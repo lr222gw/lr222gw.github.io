@@ -9,14 +9,14 @@ demotype: "video"
 ---
 
 
-![Example Image]({{site.baseurl}}{{ page.permalink }}docs/media/gui_demo.png)
+![Example Image]({{site.baseurl}}{{ page.permalink }}/docs/media/gui_demo.png)
 
 # Overview
 CPPPC, or the C++ Project Configurator, is a Python-based GUI application designed to simplify the setup process for CMake-based C++ projects. It streamlines project creation by generating essential files like the CMakeLists.txt and organizing directories. The tool aims to be user-friendly while offering flexibility in creating various types of C++ projects, whether they're libraries or executables. It provides options to specify project details, target properties, and even allows for the inclusion of external libraries fetched from GitHub (if they use CMake). One of its standout features is its ability to parse CMake libraries to gather target names and components, aiding in project configuration. Additionally, CPPPC offers a persistent cache for configuration data, making project setup smoother by remembering key information for each project.
 
 ## Demonstration 
-![Shows the add library feature; downloads a library and configures it.]({{site.baseurl}}{{ page.permalink }}docs/media/library_import_showcase.gif)
-
+<!-- ![Shows the add library feature; downloads a library and configures it.]({{site.baseurl}}{{ page.permalink }}/docs/media/library_import_showcase.gif) -->
+{% include video.html src="/docs/media/library_import_showcase.mp4" %}
 The gif above demonstrates the process of setting up a project that requires the SFML library through the graphical user interface (GUI).
  
 1. The user adds a library through the GUI by providing a custom name and a path/GitHub-Url to the library

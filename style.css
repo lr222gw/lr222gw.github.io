@@ -1,3 +1,28 @@
+
+#warn img {
+  width: 5vw;
+  filter: invert(97%) sepia(21%) saturate(5415%) hue-rotate(4deg) brightness(106%) contrast(106%);
+}
+#warn {
+  border: 3px dashed yellow;
+  padding: 10px;
+  margin: 10px;
+  background-color: #000;
+  box-shadow: inset 0px 0px 15px 2px yellow;
+}
+#warn p:first-child {
+  margin: 0px;
+  display: contents;
+}
+#warn p {
+  margin: 0px;
+  display: contents;
+  display: inline;
+  margin-left: 10px;
+  color: yellow;
+  filter: drop-shadow(0px 0px 5px #000);
+}
+
 .projectLink {
     /* padding: 10px 30px 30px 30px; */
     padding: 0px 30px 30px 30px;

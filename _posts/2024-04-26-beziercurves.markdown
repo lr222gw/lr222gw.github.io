@@ -8,4 +8,10 @@ demo: "/docs/media/beziercurve_ingame_demo.mp4"
 demotype: "video"
 ---
 
-a
+<div id="warn" markdown="1">
+![Warning Site under construction]({{site.baseurl}}{{ page.permalink }}/assets/icons/warning.svg)
+<p>Site is under construction</p>
+</div>
+
+
+{% include video.html src="/docs/media/beziercurve_ingame_demo.mp4" %}
