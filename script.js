@@ -1,15 +1,25 @@
 
 var isInsideDiv = false;
 var lasttHover = null
+var windowSizeWasAdjusted = false;
+var finallyLoaded = false;
 $(function(){
 
     // jQuery methods go here...
     initFuncs();
+
+    var override_css = function()
+    {
+        $('.post-link').css('scale','1') 
+        $('.post-link').css('opacity','1')
+    }
             
     var currentHover = null
     $(".projectLink").on("touchstart",
     function()
     {
+        if(finallyLoaded == false)
+            return;
         if(currentHover != null)
             return; 
         currentHover = this;
@@ -22,6 +32,8 @@ $(function(){
     $(".projectLink").on("touchend",
     function()
     {
+        if(finallyLoaded == false)
+            return;
         console.log($(this))
         console.log($(currentHover))
         if(currentHover != this)
@@ -36,7 +48,9 @@ $(function(){
 
     $(".projectLink").on("mouseenter",
         function()
-        {            
+        {   
+            if(finallyLoaded == false)
+                return;
             $(this).addClass('projectLink_hover')
             onEnterHover(this);
             lasttHover = this;
@@ -46,16 +60,110 @@ $(function(){
     $(".projectLink").on("mouseleave",
         function()
         {
+            if(finallyLoaded == false)
+                return;
+            
             onExitHover(this);
             $(this).removeClass('projectLink_hover')
+            if(windowSizeWasAdjusted){
+                windowSizeWasAdjusted = false;
+                adjustRowHeight();
+            }
         }
     );
-    $(window).on('resize',function(){
+    // $(window).on('resize',function(){
         
+    //     $('[thumbnail]').each(function(){
+    //         $(this).attr('style', "");
+    //     });
+    // })
+
+    var adjustRowHeight = function() {
+
         $('[thumbnail]').each(function(){
             $(this).attr('style', "");
+        });        
+
+        var container = $(".wrapper")[1]
+        var items = $('.post-link');
+        
+        var columnHeights = [0, 0];
+        var columnIndex = 0;
+        if (window.innerWidth  < 1200)
+        {
+            items.each(function(){
+    
+                this.style = "";
+    
+            });
+            $("main")[0].style.marginBottom = '0px';
+            // if(finallyLoaded)
+            // override_css();
+            // return;
+        }
+        else {
+
+            var subWidth = $($(".post-list-heading")[0]).innerWidth();
+            
+            items.each(function(){
+                const itemHeight = this.offsetHeight;
+                const shortestColumnHeight = Math.min(...columnHeights) ;
+                const shortestColumnIndex = columnHeights.indexOf(shortestColumnHeight);
+    
+
+                const left = shortestColumnIndex * (container.offsetWidth / 2);
+                const top = shortestColumnHeight + (shortestColumnHeight > 0 ? 20 : 0); // Add padding if not the first item
+
+    
+                this.style.left = left  + 'px';
+                this.style.top = top + 'px';
+                this.style.width = subWidth * 0.5 -20 + 'px';
+                
+    
+                columnHeights[shortestColumnIndex] += itemHeight;
+            });
+            let maxHeight = Math.max(...columnHeights) 
+            $("main")[0].style.marginBottom = maxHeight+'px';
+        }      
+        
+        // container.style.gridAutoRows = `${maxItemHeight}px`;
+        console.log("aa");
+        windowSizeWasAdjusted = true; 
+        if(finallyLoaded)
+            override_css();
+        
+    }
+    $(window).on('resize', adjustRowHeight);
+    $(window).on('zoom', adjustRowHeight);
+    
+    var onloadfunc = function()
+    {
+        adjustRowHeight();
+        finallyLoaded = true;
+
+        
+        $('.post-link').css('scale','0') 
+        $('#loading').css( 'scale', '1' )
+        
+        $('#loading').animate( {scale: 0 }, 150 )
+        $('#loading').animate( {borderWidth: 0 },200 )
+        $('#loading').delay(200,function(){this.remove();});
+
+        // Show the container (fade in effect)
+        $('.post-link').animate({ opacity: 1 }, 250); // Adjust duration as needed
+        $('.post-link').animate({ scale: 1.1 }, 250); // Adjust duration as needed
+        $('.post-link').animate({ scale: 1 }, 100); // Adjust duration as needed
+    
+        // Show each item with a delay for a staggered effect
+        $('.item').each(function(index) {
+            $(this).delay(index * 100).fadeIn(500); // Adjust delay and duration as needed
         });
-    })
+    }
+
+    //  $(window).resize(adjustRowHeight);
+    $(window).on('load', onloadfunc);
+    // $(window).on('ready',adjustRowHeight);
+    $(adjustRowHeight);
 }); 
 
 

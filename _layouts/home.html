@@ -1,50 +1,67 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
-<div class="home">
-  {%- if page.title -%}
-    <h1 class="page-heading">{{ page.title }}</h1>
-  {%- endif -%}
+  {%- include head_frontpage.html -%}
 
-  {{ content }}
+  <body>
+    {%- include header.html -%}
+    <main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        
 
-  {%- if site.posts.size > 0 -%}
-    <h2 class="post-list-heading">{{ page.list_title | default: "Projects" }}</h2>
-    <ul class="post-list">
-      {%- for post in site.posts -%}
-      <li>
-        {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
-        <!-- <span class="post-meta">{{ post.date | date: date_format }}</span> -->
-        <a class="post-link" href="{{ post.url | relative_url }}">
-        <div class="projectLink">
-              <div class="projectTitle">
-                <h3>
-                  {{ post.title | escape }}
-                </h3>
-              </div>
-              <div class="projectLinkMedia">
-                {%- if post.demotype == "video" -%}
-                  <video autoplay muted loop style="display:none;" class="demofeed">
-                    <source src='{{site.baseurl}}{{ page.permalink }}{{post.demo}}' demotype="video" altsrc='{{site.baseurl}}{{ page.permalink }}{{ post.image }}' type='video/mp4'/>
-                  </video>
-                  <img src="{{site.baseurl}}{{ page.permalink }}{{ post.image }}" thumbnail altsrc="{{site.baseurl}}{{ page.permalink }}{{post.demo}}">                
-                {%- endif -%}
-                {%- if post.demotype == "image" -%}
-                  <img src="{{site.baseurl}}{{ page.permalink }}{{post.demo}}" class="demofeed" demotype="image" altsrc="{{site.baseurl}}{{ page.permalink }}{{ post.image }}" style="display: none;">
-                  <img src="{{site.baseurl}}{{ page.permalink }}{{ post.image }}" thumbnail altsrc="{{site.baseurl}}{{ page.permalink }}{{post.demo}}">
-                {%- endif -%}
-              </div>
-              {%- if site.show_excerpts -%}
-              {{ post.excerpt }}
-              {%- endif -%}
+        <div class="home">
+          {%- if page.title -%}
+            <h1 class="page-heading">{{ page.title }}</h1>
+          {%- endif -%}
+
+          {{ content }}
+
+          {%- if site.posts.size > 0 -%}
+            <h2 class="post-list-heading">{{ page.list_title | default: "Projects" }}</h2>
+            <div id="loading">
             </div>
-          </a>
-      </li>
-      {%- endfor -%}
-    </ul>
+            <ul class="post-list">
+              {%- for post in site.posts -%}
+              <li>
+                {%- assign date_format = site.minima.date_format | default: "%b %-d, %Y" -%}
+                <!-- <span class="post-meta">{{ post.date | date: date_format }}</span> -->
+                <a class="post-link" href="{{ post.url | relative_url }}">
+                <div class="projectLink">
+                      <div class="projectTitle">
+                        <h3>
+                          {{ post.title | escape }}
+                        </h3>
+                      </div>
+                      <div class="projectLinkMedia">
+                        {%- if post.demotype == "video" -%}
+                          <video autoplay muted loop style="display:none;" class="demofeed">
+                            <source src='{{site.baseurl}}{{ page.permalink }}{{post.demo}}' demotype="video" altsrc='{{site.baseurl}}{{ page.permalink }}{{ post.image }}' type='video/mp4'/>
+                          </video>
+                          <img src="{{site.baseurl}}{{ page.permalink }}{{ post.image }}" thumbnail altsrc="{{site.baseurl}}{{ page.permalink }}{{post.demo}}">                
+                        {%- endif -%}
+                        {%- if post.demotype == "image" -%}
+                          <img src="{{site.baseurl}}{{ page.permalink }}{{post.demo}}" class="demofeed" demotype="image" altsrc="{{site.baseurl}}{{ page.permalink }}{{ post.image }}" style="display: none;">
+                          <img src="{{site.baseurl}}{{ page.permalink }}{{ post.image }}" thumbnail altsrc="{{site.baseurl}}{{ page.permalink }}{{post.demo}}">
+                        {%- endif -%}
+                      </div>
+                      {%- if site.show_excerpts -%}
+                      {{ post.excerpt }}
+                      {%- endif -%}
+                    </div>
+                  </a>
+              </li>
+              {%- endfor -%}
+            </ul>
 
-    <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
-  {%- endif -%}
+            <!-- <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p> -->
+          {%- endif -%}
 
-</div>
+        </div>
+  </div>
+</main>
+
+{%- include footer.html -%}
+
+</body>
+
+</html>

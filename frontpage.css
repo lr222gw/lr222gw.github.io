@@ -1,0 +1,24 @@
+@media only screen and (min-width: 1200px){
+  .post-list{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(35vw,1fr));
+    gap: 15px;
+
+    position: relative;
+  }
+  .post-list li{
+    margin-bottom: 0px;
+  }
+  .wrapper{
+    max-width: 80%;
+  }
+  .item {
+      background-color: #ccc;
+      padding: 20px;
+      text-align: center;
+  
+  }
+  .post-link {
+    position: absolute;
+  }
+}
