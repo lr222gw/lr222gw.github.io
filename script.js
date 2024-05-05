@@ -104,7 +104,8 @@ $(function(){
         else {
 
             var subWidth = $($(".post-list-heading")[0]).innerWidth();
-            
+            let counter = 0;
+            let rowcounter = 0;
             items.each(function(){
                 const itemHeight = this.offsetHeight;
                 const shortestColumnHeight = Math.min(...columnHeights) ;
@@ -112,7 +113,11 @@ $(function(){
     
 
                 const left = shortestColumnIndex * (container.offsetWidth / 2);
-                const top = shortestColumnHeight + (shortestColumnHeight > 0 ? 20 : 0); // Add padding if not the first item
+                const top = shortestColumnHeight + (shortestColumnHeight > 0 ? rowcounter * 20 : 0); // Add padding if not the first item
+                counter++;
+                if(counter % 2 == 0){
+                    rowcounter++;
+                }
 
     
                 this.style.left = left  + 'px';
@@ -162,7 +167,7 @@ $(function(){
 
     //  $(window).resize(adjustRowHeight);
     $(window).on('load', onloadfunc);
-    // $(window).on('ready',adjustRowHeight);
+    $(window).on('ready',adjustRowHeight);
     $(adjustRowHeight);
 }); 
 
