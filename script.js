@@ -139,6 +139,7 @@ $(function(){
         
     }
     $(window).on('resize', adjustRowHeight);
+    $(window).resize(function(){adjustRowHeight();});
     $(window).on('zoom', adjustRowHeight);
     
     var onloadfunc = function()
