@@ -22,3 +22,30 @@
     position: absolute;
   }
 }
+
+#header_snake  {
+  position: absolute;
+  display: inline !important;
+  width: 113px;
+  top: -53px;
+  object-fit: contain;
+  height: 109px;
+  object-position: 100% 250px;
+  transition: object-position 0.7s; 
+  margin: 0;
+  padding: 0;
+
+}
+
+/* @media only screen and (max-width: 1000px) {
+  #header_snake {
+    position: absolute;
+    width: 111px;
+    top: -132px;
+    object-fit: contain;
+    height: 193px;
+    object-position: 100% 116px;
+    right: 130px;
+    left: initial;
+  }
+} */

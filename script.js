@@ -97,9 +97,6 @@ $(function(){
     
             });
             $("main")[0].style.marginBottom = '0px';
-            // if(finallyLoaded)
-            // override_css();
-            // return;
         }
         else {
 
@@ -131,8 +128,6 @@ $(function(){
             $("main")[0].style.marginBottom = maxHeight+'px';
         }      
         
-        // container.style.gridAutoRows = `${maxItemHeight}px`;
-        console.log("aa");
         windowSizeWasAdjusted = true; 
         if(finallyLoaded)
             override_css();
@@ -150,6 +145,10 @@ $(function(){
         
         $('.post-link').css('scale','0') 
         $('#loading').css( 'scale', '1' )
+        
+        let header_snake = $('#header_snake');
+        if(header_snake)
+            header_snake.css('objectPosition' , '100% 36px');
         
         $('#loading').animate( {scale: 0 }, 150 )
         $('#loading').animate( {borderWidth: 0 },200 )

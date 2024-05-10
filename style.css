@@ -1,4 +1,15 @@
 
+#header_snake {
+  display: none;
+}
+
+.canvasinput {
+  margin: 0;
+  width: 100px;
+  display: block;
+  margin-top: 5px;
+}
+
 #warn img {
   width: 5vw;
   filter: invert(97%) sepia(21%) saturate(5415%) hue-rotate(4deg) brightness(106%) contrast(106%);
