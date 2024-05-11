@@ -1,0 +1,24 @@
+---
+layout: post
+title:  "Blender Projects"
+date:   2024-04-26 11:14:59 +0200
+categories: projects
+image: "/docs/media/blender/blender_composition_thumbnail.png"
+demo: "/docs/media/blender/blender_composition_video.webm"
+demotype: "video"
+---
+
+<div id="warn" markdown="1">
+![Warning Site under construction]({{site.baseurl}}{{ page.permalink }}/assets/icons/warning.svg)
+<p>Site is under construction</p>
+</div>
+
+
+{% include video.html src="/docs/media/blender/blender_composition_video.webm" %}
+![Shiba made in blender]({{site.baseurl}}/docs/media/blender/doggo_v6.png)
+
+{% include webm.html id="blender_chest" src="/docs/media/blender/chest.webm" %}
+{% include webm.html id="blender_shantae" src="/docs/media/blender/shantae.webm" %}
+{% include webm.html id="blender_snake" src="/docs/media/blender/snake2.webm" %}
+{% include webm.html id="blender_snakedown" src="/docs/media/blender/snake_view2.webm" %}
+{% include webm.html id="blender_sking" src="/docs/media/blender/sking.webm" %}

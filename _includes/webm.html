@@ -1,0 +1,5 @@
+
+
+<video autoplay loop muted {% if include.id %} id="{{include.id}}" {% endif %}>
+    <source src='{{site.baseurl}}{{ page.permalink }}{{include.src}}' type='video/webm'/>
+</video>
