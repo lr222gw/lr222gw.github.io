@@ -93,6 +93,74 @@ a:hover {
   font-size: 20px;
   opacity: 0;
 }
+#blender_snake, #blender_snakedown,#blender_chest {
+  width: 235px;
+}
+#blender_chest {
+  /* float: right; */
+}
+
+#advoflolo_screenshot{
+  width: 235px;
+  float: right;
+  vertical-align: baseline;
+}
+#blender_shantae {
+  float: right;
+  width: 80%;
+}
+#shantaeref_screenshot {
+  float: left;
+  width: 100%;
+}
+
+#screenshottext{
+  text-align: center;
+  flex-grow: 1;
+  display: flex;
+
+  align-items: center;
+}
+#screenshottext_sub {
+  width: 99%;
+  display: flow-root;
+}
+
+.wrapping_div{
+  display: contents;
+}
+
+h3, h2, h1 {
+  clear: both;
+}
+
+@media only screen and (max-width: 800px){
+  #blender_snake, #blender_snakedown,#blender_chest {
+    width: 29vw;
+  }
+  /* #blender_shantae {
+     float: right;
+    width: 335px;
+  } */
+  #shantaeref_screenshot {
+    float: inherit;
+    width: 100%;
+  }
+  #screenshottext {
+    text-align: center;
+    flex-grow: 1;
+    display: block;
+    align-items: center;
+  }
+  #screenshottext_sub {
+    width: 99%;
+    display: flow-root;
+  }
+  #advoflolo_screenshot,#blender_shantae{
+    float:inherit;
+  }
+}
+ 
 
 @media only screen and (max-width: 800px){
   .post-link {
