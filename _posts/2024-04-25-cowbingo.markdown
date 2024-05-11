@@ -14,4 +14,4 @@ demotype: "video"
 </div>
 
 
-{% include video.html src="/docs/media/cowbingo/cowbingo2.webm" %}
+{% include video.html src="/docs/media/cowbingo/cowbingo3.webm" %}
