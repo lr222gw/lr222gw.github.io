@@ -1,0 +1,615 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<diagram program="umlet" version="15.1">
+  <zoom_level>8</zoom_level>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>968</x>
+      <y>416</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>/Animal/
+--
+-crapRate: int
+--
+/+move(): void/
+/+crapOnTile(): void/</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1024</x>
+      <y>512</y>
+      <w>168</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>_Cow_
+--
+--
+move(): void
+crapOnTile(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1104</x>
+      <y>480</y>
+      <w>24</w>
+      <h>48</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;40.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>872</x>
+      <y>144</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>_Game_
+--
+--
+-update():void
+-render():void
++run(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>872</x>
+      <y>32</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>_NumberBoard: sf::drawable_
+--
+--
++checkBingo(): bool
++cleanTile(): void
++markTileAsCrapped() : void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1128</x>
+      <y>280</y>
+      <w>168</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>_Poo_
+--
+--
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>608</x>
+      <y>416</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>_Player_
+--
+-money: int             
+-opponent: *Player
+--
++move():void
++useItem(const Item&amp;):void
++punish</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>496</x>
+      <y>592</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>_Shop : sf::drawable_
+--
+--
+buy(Item&amp;):void
+updateItems(): void
+checkCollision: Item* </panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>544</x>
+      <y>728</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>_Wheat_
+--
+--
++use():bool
++getName():string
++collided():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>592</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>/Item : Entity/
+--
+-owner : *Player
+--
++getPrice(): int
+/+use():bool/
+/+getName():string/
+/+collided():void/
++draw(): void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>720</x>
+      <y>728</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>_Rock_
+--
+--
++use():bool
++getName():string
++collided():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>896</x>
+      <y>728</y>
+      <w>168</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>_DungBeetle_
+--
+--
++use():bool
++getName():string
++collided():void</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>688</y>
+      <w>200</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;20.0;230.0;20.0;230.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>688</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>664</x>
+      <y>688</y>
+      <w>152</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>170.0;10.0;170.0;20.0;10.0;20.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1408</x>
+      <y>608</y>
+      <w>168</w>
+      <h>64</h>
+    </coordinates>
+    <panel_attributes>_Tile_
+--
+-id: int
+-value: int
+-isSoiled: bool
+--</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>1200</x>
+      <y>608</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>_BingoBoard_
+--
+-specialTiles: Tiles*[5]
+--
++checkSpecialTiles(): bool
++checkBingo(): bool</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>168</y>
+      <w>64</w>
+      <h>264</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=2
+fg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;50.0;10.0;50.0;310.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>648</x>
+      <y>192</y>
+      <w>240</w>
+      <h>240</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=2 
+fg=black
+</panel_attributes>
+    <additional_attributes>280.0;20.0;10.0;20.0;10.0;280.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>960</x>
+      <y>88</y>
+      <w>32</w>
+      <h>72</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;70.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>64</y>
+      <w>216</w>
+      <h>232</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=*</panel_attributes>
+    <additional_attributes>10.0;10.0;250.0;10.0;250.0;270.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>80</y>
+      <w>96</w>
+      <h>352</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>100.0;420.0;100.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>768</x>
+      <y>480</y>
+      <w>448</w>
+      <h>168</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;220.0;10.0;220.0;180.0;540.0;180.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>656</x>
+      <y>616</y>
+      <w>80</w>
+      <h>32</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=12
+fg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;80.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>720</x>
+      <y>512</y>
+      <w>48</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=0..12
+fg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>976</x>
+      <y>0</y>
+      <w>536</w>
+      <h>624</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=25</panel_attributes>
+    <additional_attributes>10.0;40.0;10.0;10.0;640.0;10.0;640.0;760.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>48</y>
+      <w>368</w>
+      <h>576</h>
+    </coordinates>
+    <panel_attributes>lt=-
+m1=
+m2=
+ChecksStatus ^</panel_attributes>
+    <additional_attributes>10.0;10.0;340.0;10.0;340.0;550.0;260.0;550.0;260.0;700.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>640</x>
+      <y>512</y>
+      <w>32</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>568</x>
+      <y>168</y>
+      <w>320</w>
+      <h>440</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1</panel_attributes>
+    <additional_attributes>380.0;10.0;10.0;10.0;10.0;530.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1328</x>
+      <y>568</y>
+      <w>136</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+m2=25</panel_attributes>
+    <additional_attributes>10.0;50.0;10.0;10.0;140.0;10.0;140.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>872</x>
+      <y>240</y>
+      <w>168</w>
+      <h>112</h>
+    </coordinates>
+    <panel_attributes>/Entity : sf::drawable/
+--
+-sprite : sf::Sprite
+-texture : sf::Texture
+-position: sf::vector2f
+-moveSpeed: float
+--
+/+move(): void/
++draw(): void
+</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>752</x>
+      <y>344</y>
+      <w>208</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>240.0;10.0;240.0;60.0;10.0;60.0;10.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>936</x>
+      <y>344</y>
+      <w>64</w>
+      <h>88</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;60.0;60.0;60.0;60.0;90.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1128</x>
+      <y>304</y>
+      <w>144</w>
+      <h>184</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;-
+m1=
+m2= 
+Produces ^</panel_attributes>
+    <additional_attributes>90.0;10.0;90.0;200.0;10.0;200.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>680</x>
+      <y>224</y>
+      <w>168</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>AnimationHelper
+--
+-sprite : *sf::Sprite
+-texture : *sf::Texture
+-intRect : sf::IntRect
+--
++update() : void
++setTexture() : void
+
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>320</y>
+      <w>96</w>
+      <h>40</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1
+fg=black</panel_attributes>
+    <additional_attributes>100.0;30.0;10.0;30.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>32</y>
+      <w>392</w>
+      <h>592</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+fg=black</panel_attributes>
+    <additional_attributes>300.0;720.0;300.0;610.0;470.0;610.0;470.0;10.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>360</x>
+      <y>320</y>
+      <w>168</w>
+      <h>80</h>
+    </coordinates>
+    <panel_attributes>_ControllerConfigurator_
+--
+--
+-createDefaultConfFile():void
+-saveConfig():void
++loadConfig(): void
++setInputPair(): void
+fg=black</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>408</x>
+      <y>392</y>
+      <w>216</w>
+      <h>128</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;&lt;-
+m2=1
+fg=black
+(static function member)</panel_attributes>
+    <additional_attributes>30.0;10.0;30.0;130.0;250.0;130.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>1032</x>
+      <y>280</y>
+      <w>112</w>
+      <h>24</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;-</panel_attributes>
+    <additional_attributes>10.0;10.0;120.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>336</x>
+      <y>144</y>
+      <w>552</w>
+      <h>624</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+fg=black</panel_attributes>
+    <additional_attributes>260.0;760.0;10.0;760.0;10.0;10.0;670.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>792</x>
+      <y>792</y>
+      <w>24</w>
+      <h>56</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+fg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;50.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>472</x>
+      <y>744</y>
+      <w>472</w>
+      <h>104</h>
+    </coordinates>
+    <panel_attributes>lt=&lt;&lt;&lt;&lt;-
+fg=black</panel_attributes>
+    <additional_attributes>570.0;70.0;570.0;110.0;10.0;110.0;10.0;10.0</additional_attributes>
+  </element>
+  <element>
+    <id>Relation</id>
+    <coordinates>
+      <x>760</x>
+      <y>512</y>
+      <w>96</w>
+      <h>96</h>
+    </coordinates>
+    <panel_attributes>lt=-
+use(*Player) ^
+fg=black</panel_attributes>
+    <additional_attributes>10.0;10.0;10.0;100.0</additional_attributes>
+  </element>
+</diagram>

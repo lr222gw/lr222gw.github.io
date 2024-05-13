@@ -1,0 +1,41 @@
+
+{% comment %}
+    div_id:         Unique name of the div to be presented/hidden
+    button_text:    Text of button to hide/show 
+    div_content:    Contents of the window, best captured with `capture`
+
+    Ex: 
+
+        {% capture div_contents %}
+        ## Some Title
+        Some text 
+        {% endcapture %}
+
+        {% include ButtonHideWindow.html div_id="someWindowId" div_content=div_contents button_text="Some ButtonText" %}
+
+{% endcomment %}
+
+<div markdown="1">
+<button id="{{include.div_id}}_button" onclick="$('#{{include.div_id}}').is(':visible') == true ? ($('#{{include.div_id}}').css({'height': '0px','scale':'0.5'}), setTimeout(function(){$('#{{include.div_id}}').hide();},500)) : ($('#{{include.div_id}}').show(), $('#{{include.div_id}}').css({'height': '100%','scale':'1'}));">
+    {{include.button_text}}
+</button>
+</div>
+<div markdown="1" id="{{include.div_id}}_wrapper" style="display:grid;">
+<div markdown="1"  id="{{include.div_id}}" style='display:none; box-shadow: 0px 0px 5px 1px black;transition: ease-in-out 0.5s;padding: 10px;overflow: hidden;height:0px; scale:0'>
+{{include.div_content}}
+</div>
+</div>
+
+## Details 
+#### Bezier Curve tool (See other article )
+[Bezier Curve tool]({{ 'projects/beziercurves/' | relative_url }})
+##### Editor Tools 
+#### Player Frames (See other article)
+[Player Frames]({{ 'projects/frame_demo/' | relative_url }})
+#### Game Booths 
+##### Cardstack 
+##### Cardholders 
+#### Platform (vrchat, udonsharp)
+##### Debug Tools 
+[calltracer]({{ 'projects/calltracer/' | relative_url }})
+<!--#### Multiplayer-->
