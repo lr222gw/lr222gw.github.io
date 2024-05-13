@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: project
 title:  "Compiler Test Monitor"
-date:   2024-04-26 11:14:59 +0200
+date:   2024-03-13
 categories: projects
 image: "/docs/media/compiler_test_demo_cropped.png"
 demo: "/docs/media/compiler_test_demo_cropped.mp4"

@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: project
 title:  "(WIP) Skullgame"
-date:   2024-04-26 11:14:59 +0200
+date:   2024-06-12
 categories: projects
 image: "/docs/media/skullgame.png"
 demo: "/docs/media/full_fast_demo.mp4"

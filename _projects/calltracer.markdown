@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: project
 title:  "Calltracer for udonsharp in unity"
-date:   2024-04-26 11:14:59 +0200
+date:   2024-05-26
 categories: projects
 image: "/docs/media/calltrace_script_befaft2.png"
 demo: "/docs/media/pythonscript_udoncalltracerinjector.mp4"

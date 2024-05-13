@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: project
 title:  "Frames"
-date:   2024-04-26 11:14:59 +0200
+date:   2024-05-26
 categories: projects
 image: "/docs/media/frames/frames_all.png"
 demo: "/docs/media/frames/frames_demo.mp4"

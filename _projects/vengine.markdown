@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: project
 title:  "Vulkan 3D Renderer"
-date:   2024-04-26 11:14:59 +0200
+date:   2024-04-26
 categories: projects
 image: "/docs/media/vengine/vengine_thumbnail.png"
 demo: "/docs/media/vengine/Vengine_showcase_minimal.mp4"

@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: project
 title:  Blender Projects
-date:   2024-04-26 11:14:59 +0200
+date:   2024-06-13
 categories: projects
 image: "/docs/media/blender/blender_composition_thumbnail.png"
 demo: "/docs/media/blender/blender_composition_video.webm"

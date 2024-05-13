@@ -1,7 +1,7 @@
 ---
-layout: post
+layout: project
 title:  "CPPPC - C++ Project Configurator"
-date:   2024-04-26 11:14:59 +0200
+date:   2024-05-26
 categories: project
 image: "/docs/media/gui_demo.png"
 demo: "/docs/media/library_import_showcase.mp4"
