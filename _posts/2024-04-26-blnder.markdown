@@ -10,7 +10,7 @@ demotype: "video"
 
 
 
-{% include video.html src="/docs/media/blender/blender_composition_video.webm" %}
+{% include video.html src="/docs/media/blender/blender_composition_video.webm" type="webm" %}
 
 
 ## Introduction

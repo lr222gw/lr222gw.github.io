@@ -35,7 +35,7 @@
                       </div>
                       <div class="projectLinkMedia">
                         {%- if post.demotype == "video" -%}
-                          <video autoplay muted loop style="display:none;" class="demofeed">
+                          <video autoplay muted loop preload style="display:none;" class="demofeed">
                             <source src='{{site.baseurl}}{{ page.permalink }}{{post.demo}}' demotype="video" altsrc='{{site.baseurl}}{{ page.permalink }}{{ post.image }}' type='video/mp4'/>
                           </video>
                           <img src="{{site.baseurl}}{{ page.permalink }}{{ post.image }}" thumbnail altsrc="{{site.baseurl}}{{ page.permalink }}{{post.demo}}">                

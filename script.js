@@ -233,7 +233,19 @@ function initFuncs()
             if (lasttHover != element)
             $(element).find('[demotype]')[0].parentElement.currentTime = 0;
 
-            $(element).find('[demotype]')[0].parentElement.play();
+            var playPromise = $(element).find('[demotype]')[0].parentElement.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                  // Automatic playback started!
+                  // Show playing UI.
+                  // We can now safely pause video...
+                  video.pause();
+                })
+                .catch(error => {
+                  // Auto-play was prevented
+                  // Show paused UI.
+                });
+              }
             $($(element).find('[demotype]')[0].parentElement).attr('style', 'height: '+ useInitHeight+'px;');
         }
         else {
